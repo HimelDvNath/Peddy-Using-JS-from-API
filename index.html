@@ -1,35 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peddy</title>
 
-     <!-- css  -->
-     <!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <!-- css  -->
+    <!-- <link rel="stylesheet" href="styles/style.css"> -->
     <!-- daisyUI CDN -->
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- font Awesome CDN -->
-    <script src="https://kit.fontawesome.com/1ca73ef840.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/1ca73ef840.js"
+      crossorigin="anonymous"></script>
 
     <!-- tailwind CDN -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <!-- config  -->
     <script>
-        tailwind.config = {
+      tailwind.config = {
         theme: {
-            extend: {
+          extend: {
             colors: {
-                clifford: '#da373d',
-            }
-            }
-        }
-        }
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header class="">
+      <nav class="">
+        <div class="navbar lg:px-50 py-5 mb-20 mx-auto">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns=""
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                <li><a>Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>Contact</a></li>
+              </ul>
+            </div>
+            <div class="flex gap-2 h-7 items-center">
+              <img class="w-5 h-5" src="images/logo.webp" alt="" />
+              <a class="font-bold text-3xl">Peddy</a>
+            </div>
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li><a>Home</a></li>
+              <li><a>Shop</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <div class="navbar-end ">
+            <a class="w-12 h-12 bg-gray-200 rounded-full flex justify-center btn"><img class="w-10 h-5 self-center" src="https://img.icons8.com/?size=96&id=fJ7hcfUGpKG7&format=png" alt=""></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </body>
 </html>
