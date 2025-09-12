@@ -6,7 +6,14 @@
     <title>Peddy</title>
 
     <!-- css  -->
-    <!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <!-- Google Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet" />
     <!-- daisyUI CDN -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -34,10 +41,11 @@
       };
     </script>
   </head>
-  <body>
+  <body class="lato-font">
+    <!-- header (navbar)  -->
     <header class="">
       <nav class="">
-        <div class="navbar lg:px-50 py-5 mb-20 mx-auto">
+        <div class="navbar lg:px-50 py-5 mb-10 mx-auto">
           <div class="navbar-start">
             <div class="dropdown">
               <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -88,14 +96,14 @@
     </header>
     <main>
       <!-- Hero section  -->
-      <section class="w-10/12 mx-auto">
+      <section class="w-10/12 mx-auto hidden">
         <div class="hero">
           <div class="hero-content text-center">
-            <div class="max-w">
-              <h1>
-                <span class="text-gray-400 font-bold text-xl"
-                  >Bringing Families Together</span
-                >
+            <div class="">
+              <h1 class="">
+                <div class="text-gray-400 font-bold text-xl lih">
+                  Bringing Families Together
+                </div>
                 <br />
                 <span class="text-3xl lg:text-5xl font-bold"
                   >Your Path to Adoption <br />
@@ -115,26 +123,46 @@
           </div>
         </div>
       </section>
-
       <!-- ========== Start Section adopt ========== -->
-      <section class="w-10/12 mx-auto">
+      <section class="w-10/12 mx-auto mb-25 hidden">
         <div class="hero">
           <div class="hero-content text-center">
             <div class="">
-              <h1 class="text-3xl lg:text-5xl font-bold">Adopt  Your  Best Friend</h1>
+              <h1 class="text-3xl lg:text-5xl font-bold">
+                Adopt Your Best Friend
+              </h1>
               <p class="py-6 max-w-3xl text-gray-500 mx-auto">
-               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a.
               </p>
-              <div id="categories-btn" class="grid grid-cols-2 lg:grid-cols-4 gap-10">
-              </div>
+              <div
+                id="categories-btn"
+                class="grid grid-cols-2 lg:grid-cols-4 gap-10"></div>
             </div>
           </div>
         </div>
       </section>
       <!-- ========== End Section adopt ========== -->
+      <!-- ========== Start Section Best Deal bar ========== -->
+      <section class="w-10/12 mx-auto mb-25 hidden">
+        <div class="flex justify-between">
+          <h2 class="text-xl lg:text-4xl font-bold">Best Deal For you</h2>
+          <button class="btn bg-[#0E7A81] text-white rounded-lg p-5">
+            Sort by Price
+          </button>
+        </div>
+      </section>
+      <!-- ========== End Section bar ========== -->
+      <!-- ========== Start Section Card section ========== -->
+      <section class="w-10/12 mx-auto mb-25">
+        <div id="pets-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div></div>
+      </section>
+      <!-- ========== End Section Card section ========== -->
     </main>
 
     <!-- JavaScript -->
-     <script src="Scripts/pet.js"></script>
+    <script src="Scripts/pet.js"></script>
   </body>
 </html>
