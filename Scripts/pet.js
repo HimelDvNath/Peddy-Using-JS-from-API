@@ -87,8 +87,8 @@ const displayAllPets = (pets) => {
                 <div class="divider"></div>
                 <div class="flex justify-between">
                 <div class="btn p-5"><img class="h-8" src="https://img.icons8.com/?size=96&id=U6uSXVbuA1xU&format=png"/></div>
-                <div class="btn p-5 text-blue-600 font-bold">Adopt</div>
-                <div class="btn p-5 text-blue-600 font-bold">Details</div>
+                <div class="btn p-5 text-[#0E7A81] font-extrabold">Adopt</div>
+                <div class="btn p-5 text-[#0E7A81] font-extrabold">Details</div>
                 </div>
             </div>
         </div>
