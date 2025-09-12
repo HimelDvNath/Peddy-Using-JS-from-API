@@ -12,6 +12,14 @@ const loadAllPets = () => {
     .then((data) => displayAllPets(data.pets))
     .catch((err) => console.log(err));
 };
+const chosenCategoryPet = async (petCategory) => {
+  fetch(
+    `https://openapi.programming-hero.com/api/peddy/category/${petCategory}`
+  )
+    .then((res) => res.json())
+    .then((data) => displayAllPets(data.data))
+    .catch((err) => console.log(err));
+};
 
 // {
 //     "id": 1,
@@ -20,12 +28,13 @@ const loadAllPets = () => {
 // }
 const loadCategories = (pets) => {
   const adoptPetsBtnContainer = document.getElementById("categories-btn");
+
   for (const pet of pets) {
     const btn = document.createElement("div");
 
     btn.classList = "btn text-gray-200 rounded-md p-7 md:p-10";
     btn.innerHTML = `
-            <button class=" flex gap-5 items-center">
+            <button onclick="chosenCategoryPet('${pet.category}')" class=" flex gap-5 items-center">
                 <img class="h-10 md:h-auto" src=${pet.category_icon}/>
                 <h2 class="text-lg md:text-3xl text-black font-bold">${pet.category}</h2>
             </button>
@@ -33,6 +42,7 @@ const loadCategories = (pets) => {
     adoptPetsBtnContainer.append(btn);
   }
 };
+
 // {
 //     "petId": 1,
 //     "breed": "Golden Retriever",
@@ -45,10 +55,33 @@ const loadCategories = (pets) => {
 //     "vaccinated_status": "Fully",
 //     "pet_name": "Sunny"
 // }
-
+const notAvailablePets = (petsCardContainer) => {
+  petsCardContainer.classList.remove("grid");
+  const hero = document.createElement("div");
+  hero.innerHTML = `
+    <div class="hero bg-base-200 flex justify-center items-center mx-auto p-40">
+      <div class="hero-content text-center">
+        <div class="">
+          <div class="flex justify-center items-center"><img class="h-40 w-40 mb-5 " src="images/error.webp"/></div>
+          <h1 class="text-5xl font-extrabold">No Information Available</h1>
+          <p class="py-6 min-w-md">
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at <br>its layout. The point of using Lorem Ipsum is that it has a.
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+  petsCardContainer.append(hero);
+  
+};
 const displayAllPets = (pets) => {
   const petsCardContainer = document.getElementById("pets-cards");
-
+  petsCardContainer.innerHTML = "";
+  if (pets.length == 0) {
+    notAvailablePets(petsCardContainer);
+    return
+  }
+  petsCardContainer.classList.add("grid");
   for (const pet of pets) {
     const birthYear = new Date(pet.date_of_birth).getFullYear();
     const card = document.createElement("div");
@@ -98,24 +131,24 @@ const displayAllPets = (pets) => {
   }
 };
 
-const chosenPetsContainer = document.getElementById('choosen-pets');
-const likeBtnClicked = (petID)=>{
+const chosenPetsContainer = document.getElementById("choosen-pets");
+const likeBtnClicked = (petID) => {
   fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petID}`)
-  .then(res=>res.json())
-  .then(data=>chosenPet(data.petData))
-  .catch(err => console.log(err))
-}
-const chosenPet = (pet)=>{
-  const card = document.createElement('div')
+    .then((res) => res.json())
+    .then((data) => chosenPet(data.petData))
+    .catch((err) => console.log(err));
+};
+const chosenPet = (pet) => {
+  const card = document.createElement("div");
   card.innerHTML = `
-    <img class="h-50 w-80 rounded-xl" src=${pet.image} />
-  `
+    <img class="h-50 w-full md:w-80 rounded-xl" src=${pet.image} />
+  `;
   chosenPetsContainer.append(card);
-}
+};
 
-document.getElementById('clean-btn').addEventListener('click', ()=>{
-  chosenPetsContainer.innerHTML = ""
-})
+document.getElementById("clean-btn").addEventListener("click", () => {
+  chosenPetsContainer.innerHTML = "";
+});
 
 petCategories();
 loadAllPets();

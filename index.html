@@ -96,7 +96,7 @@
     </header>
     <main>
       <!-- Hero section  -->
-      <section class="w-10/12 mx-auto hidden">
+      <section class="w-10/12 mx-auto">
         <div class="hero">
           <div class="hero-content text-center">
             <div class="">
@@ -124,7 +124,7 @@
         </div>
       </section>
       <!-- ========== Start Section adopt ========== -->
-      <section class="w-10/12 mx-auto mb-25 hidden">
+      <section class="w-10/12 mx-auto mb-25">
         <div class="hero">
           <div class="hero-content text-center">
             <div class="">
@@ -145,7 +145,7 @@
       </section>
       <!-- ========== End Section adopt ========== -->
       <!-- ========== Start Section Best Deal bar ========== -->
-      <section class="w-10/12 mx-auto mb-25 ">
+      <section class="w-10/12 mx-auto mb-25">
         <div class="flex justify-between">
           <h2 class="text-xl lg:text-4xl font-bold">Best Deal For you</h2>
           <button class="btn bg-[#0E7A81] text-white rounded-lg p-5">
@@ -155,13 +155,19 @@
       </section>
       <!-- ========== End Section bar ========== -->
       <!-- ========== Start Section Card section ========== -->
-      <section class="w-10/12 mx-auto mb-25 flex gap-10">
+      <section class="w-10/12 mx-auto mb-25 flex">
         <div
           id="pets-cards"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-5/7"></div>
-        <div  class="card bg-base-200 shadow-xl h-auto w-2/7 p-10 flex flex-col justify-between">
-          <div id="choosen-pets" class="grid grid-cols-2 gap-5"></div>
-          <div><button id="clean-btn" class="btn btn-primary font-bold">Clean Card</button></div>
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
+        </div>
+        <div
+          class="card bg-base-200 shadow-xl h-auto w-2/7 p-5 md:p-10 flex flex-col justify-between">
+          <div id="choosen-pets" class="grid grid-cols-1 md:grid-cols-2 gap-5 "></div>
+          <button
+            id="clean-btn"
+            class="btn bg-[#0E7A81] text-white rounded-lg py-5">
+            Clean Card
+          </button>
         </div>
       </section>
       <!-- ========== End Section Card section ========== -->
@@ -169,21 +175,34 @@
 
     <!-- ========== Start Section Footer ========== -->
     <footer
-      class="footer sm:footer-horizontal bg-neutral text-neutral-content lg:px-80 py-10 gap-50 hidden">
+      class="footer sm:footer-horizontal bg-neutral text-neutral-content lg:px-80 py-10 gap-50">
       <nav>
         <div class="flex gap-2 h-7 items-center mb-4">
           <img class="w-4 h-4" src="images/logo.webp" alt="" />
           <a class="font-bold text-xl">Peddy</a>
         </div>
         <p class="text-gray-400 mb-3">
-          Location: av. Washington 165, NY CA 54003 <br>Phone: +31 85 964 47 25 <br>
-          Email: info@yourdomain.com <br>Openings hours: 9.00 AM - 5.00 PM
+          Location: av. Washington 165, NY CA 54003 <br />Phone: +31 85 964 47
+          25 <br />
+          Email: info@yourdomain.com <br />Openings hours: 9.00 AM - 5.00 PM
         </p>
         <div class="flex gap-3">
-            <img class="w-8 h-7" src="https://img.icons8.com/?size=96&id=uLWV5A9vXIPu&format=png" alt="">
-            <img class="w-8 h-7"src="https://img.icons8.com/?size=128&id=bG29Ckcdp6YP&format=png" alt=""> 
-            <img class="w-8 h-7"src="https://img.icons8.com/?size=160&id=omVNNE6wkyP7&format=png" alt="">
-            <img class="w-8 h-7"src="https://img.icons8.com/?size=160&id=BrU2BBoRXiWq&format=png" alt="">
+          <img
+            class="w-8 h-7"
+            src="https://img.icons8.com/?size=96&id=uLWV5A9vXIPu&format=png"
+            alt="" />
+          <img
+            class="w-8 h-7"
+            src="https://img.icons8.com/?size=128&id=bG29Ckcdp6YP&format=png"
+            alt="" />
+          <img
+            class="w-8 h-7"
+            src="https://img.icons8.com/?size=160&id=omVNNE6wkyP7&format=png"
+            alt="" />
+          <img
+            class="w-8 h-7"
+            src="https://img.icons8.com/?size=160&id=BrU2BBoRXiWq&format=png"
+            alt="" />
         </div>
       </nav>
       <nav>
@@ -196,9 +215,13 @@
       </nav>
       <nav>
         <h6 class="footer-title mb-3">Drop a Message</h6>
-        <input type="text" placeholder="Enter your email" class="input bg-gray-700 text-white mb-4" />
-        <button class="btn bg-[#0E7A81] text-white rounded-lg p-5 border-none w-full">
-            Subscribe
+        <input
+          type="text"
+          placeholder="Enter your email"
+          class="input bg-gray-700 text-white mb-4" />
+        <button
+          class="btn bg-[#0E7A81] text-white rounded-lg p-5 border-none w-full">
+          Subscribe
         </button>
       </nav>
     </footer>
