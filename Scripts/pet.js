@@ -86,9 +86,10 @@ const displayAllPets = (pets) => {
                 </div>
                 <div class="divider"></div>
                 <div class="flex justify-between">
-                <div class="btn p-5"><img class="h-8" src="https://img.icons8.com/?size=96&id=U6uSXVbuA1xU&format=png"/></div>
-                <div class="btn p-5 text-[#0E7A81] font-extrabold">Adopt</div>
-                <div class="btn p-5 text-[#0E7A81] font-extrabold">Details</div>
+                
+                <div onclick="likeBtnClicked('${pet.petId}')" class="btn p-5"><img class="h-8" src="https://img.icons8.com/?size=96&id=U6uSXVbuA1xU&format=png"/></div>
+                <div id="adopt-btn" class="btn p-5 text-[#0E7A81] font-extrabold">Adopt</div>
+                <div id="details-btn" class="btn p-5 text-[#0E7A81] font-extrabold">Details</div>
                 </div>
             </div>
         </div>
@@ -96,6 +97,25 @@ const displayAllPets = (pets) => {
     petsCardContainer.append(card);
   }
 };
+
+const chosenPetsContainer = document.getElementById('choosen-pets');
+const likeBtnClicked = (petID)=>{
+  fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petID}`)
+  .then(res=>res.json())
+  .then(data=>chosenPet(data.petData))
+  .catch(err => console.log(err))
+}
+const chosenPet = (pet)=>{
+  const card = document.createElement('div')
+  card.innerHTML = `
+    <img class="h-50 w-80 rounded-xl" src=${pet.image} />
+  `
+  chosenPetsContainer.append(card);
+}
+
+document.getElementById('clean-btn').addEventListener('click', ()=>{
+  chosenPetsContainer.innerHTML = ""
+})
 
 petCategories();
 loadAllPets();

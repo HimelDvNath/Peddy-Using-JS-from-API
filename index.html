@@ -96,7 +96,7 @@
     </header>
     <main>
       <!-- Hero section  -->
-      <section class="w-10/12 mx-auto">
+      <section class="w-10/12 mx-auto hidden">
         <div class="hero">
           <div class="hero-content text-center">
             <div class="">
@@ -124,7 +124,7 @@
         </div>
       </section>
       <!-- ========== Start Section adopt ========== -->
-      <section class="w-10/12 mx-auto mb-25 ">
+      <section class="w-10/12 mx-auto mb-25 hidden">
         <div class="hero">
           <div class="hero-content text-center">
             <div class="">
@@ -155,18 +155,21 @@
       </section>
       <!-- ========== End Section bar ========== -->
       <!-- ========== Start Section Card section ========== -->
-      <section class="w-10/12 mx-auto mb-25">
+      <section class="w-10/12 mx-auto mb-25 flex gap-10">
         <div
           id="pets-cards"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        <div id="choosen-pets"></div>
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-5/7"></div>
+        <div  class="card bg-base-200 shadow-xl h-auto w-2/7 p-10 flex flex-col justify-between">
+          <div id="choosen-pets" class="grid grid-cols-2 gap-5"></div>
+          <div><button id="clean-btn" class="btn btn-primary font-bold">Clean Card</button></div>
+        </div>
       </section>
       <!-- ========== End Section Card section ========== -->
     </main>
 
     <!-- ========== Start Section Footer ========== -->
     <footer
-      class="footer sm:footer-horizontal bg-neutral text-neutral-content lg:px-80 py-10 gap-50">
+      class="footer sm:footer-horizontal bg-neutral text-neutral-content lg:px-80 py-10 gap-50 hidden">
       <nav>
         <div class="flex gap-2 h-7 items-center mb-4">
           <img class="w-4 h-4" src="images/logo.webp" alt="" />
