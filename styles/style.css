@@ -1,3 +1,6 @@
-.lato-font{
-    font-family: "Lato", sans-serif;
+.lato-font {
+  font-family: "Lato", sans-serif;
+}
+.model-ul {
+  list-style: inside;
 }

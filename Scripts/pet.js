@@ -43,26 +43,14 @@ const loadCategories = (pets) => {
   }
 };
 
-// {
-//     "petId": 1,
-//     "breed": "Golden Retriever",
-//     "category": "Dog",
-//     "date_of_birth": "2023-01-15",
-//     "price": 1200,
-//     "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-//     "gender": "Male",
-//     "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-//     "vaccinated_status": "Fully",
-//     "pet_name": "Sunny"
-// }
 const notAvailablePets = (petsCardContainer) => {
   petsCardContainer.classList.remove("grid");
   const hero = document.createElement("div");
   hero.innerHTML = `
-    <div class="hero bg-base-200 flex justify-center items-center mx-auto p-40">
-      <div class="hero-content text-center">
-        <div class="">
-          <div class="flex justify-center items-center"><img class="h-40 w-40 mb-5 " src="images/error.webp"/></div>
+  <div class="hero bg-base-200 flex justify-center items-center mx-auto p-40">
+  <div class="hero-content text-center">
+  <div class="">
+  <div class="flex justify-center items-center"><img class="h-40 w-40 mb-5 " src="images/error.webp"/></div>
           <h1 class="text-5xl font-extrabold">No Information Available</h1>
           <p class="py-6 min-w-md">
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at <br>its layout. The point of using Lorem Ipsum is that it has a.
@@ -86,9 +74,9 @@ const displayAllPets = (pets) => {
     const birthYear = new Date(pet.date_of_birth).getFullYear();
     const card = document.createElement("div");
     card.innerHTML = `
-        <div class="card bg-base-100 w-80 shadow-lg p-5">
-            <figure class="rounded-xl mb-2">
-                <img
+        <div class="card bg-base-100 w-auto  shadow-lg p-5">
+            <figure class="mb-2 h-[200px]">
+                <img class="rounded-xl"
                 src= ${pet.image}
                 alt="Shoes" />
             </figure>
@@ -120,9 +108,9 @@ const displayAllPets = (pets) => {
                 <div class="divider"></div>
                 <div class="flex justify-between">
                 
-                <div onclick="likeBtnClicked('${pet.petId}')" class="btn p-5"><img class="h-8" src="https://img.icons8.com/?size=96&id=U6uSXVbuA1xU&format=png"/></div>
-                <div id="adopt-btn" class="btn p-5 text-[#0E7A81] font-extrabold">Adopt</div>
-                <div id="details-btn" class="btn p-5 text-[#0E7A81] font-extrabold">Details</div>
+                <div onclick="likeBtnClicked('${pet.petId}')" class="btn p-3 lg:p-5"><img class="h-5 md:h-8" src="https://img.icons8.com/?size=96&id=U6uSXVbuA1xU&format=png"/></div>
+                <div id="adopt-btn" class="btn p-3 lg:p-5 text-[#0E7A81] font-extrabold">Adopt</div>
+                <div onclick="detailsBtnClicked('${pet.petId}')" class="btn p-3 lg:p-5 text-[#0E7A81] font-extrabold">Details</div>
                 </div>
             </div>
         </div>
@@ -130,7 +118,108 @@ const displayAllPets = (pets) => {
     petsCardContainer.append(card);
   }
 };
-
+const detailsBtnClicked = (petID)=>{
+  fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petID}`)
+  .then(res => res.json())
+  .then(data => displayModal(data.petData))
+  .catch(err => console.log(err))
+}
+// {
+//     "petId": 1,
+//     "breed": "Golden Retriever",
+//     "category": "Dog",
+//     "date_of_birth": "2023-01-15",
+//     "price": 1200,
+//     "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
+//     "gender": "Male",
+//     "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
+//     "vaccinated_status": "Fully",
+//     "pet_name": "Sunny"
+// }
+const displayModal = (pet)=>{
+  const modal = document.getElementById('custom-modal');
+  const birthYear = new Date(pet.date_of_birth).getFullYear();
+  
+  modal.innerHTML = `
+    <div class="bg-base-100 p-2 w-full">
+          <div class="mb-6">
+            <img
+              class="shadow-md rounded-lg w-full h-80"
+              src=${pet.image}
+              alt="" />
+          </div>
+          <!-- pet details  -->
+          <div>
+            <h1 class="text-2xl font-extrabold mb-5">pet name</h1>
+            <div class="flex gap-25">
+              <!-- left div  -->
+              <div>
+                <div class="flex gap-2 mb-2">
+                  <img
+                    class="h-5"
+                    src="https://img.icons8.com/?size=48&id=Roa2QOIOdmUA&format=png" />
+                  <p class="text-md text-gray-500">Breed: ${pet.breed}</p>
+                </div>
+                <div class="flex gap-2 mb-2">
+                  <img
+                    class="h-5"
+                    src="https://img.icons8.com/?size=48&id=skdvszUmNlnQ&format=png" />
+                  <p class="text-md text-gray-500">Gender: ${pet.gender}</p>
+                </div>
+                <div class="flex gap-2">
+                  <img
+                    class="h-5"
+                    src="https://img.icons8.com/?size=48&id=89392&format=png" />
+                  <p class="text-md text-gray-500">
+                    Vaccinated status: ${pet.vaccinated_status}
+                  </p>
+                </div>
+              </div>
+              <!-- right div  -->
+              <div>
+                <div class="flex gap-2 mb-2">
+                  <img
+                    class="h-5"
+                    src="https://img.icons8.com/?size=160&id=udduMUcrHmZa&format=png" />
+                  <p class="text-md text-gray-500">Birth: ${birthYear}</p>
+                </div>
+                <div class="flex gap-2 mb-2">
+                  <img
+                    class="h-5"
+                    src="https://img.icons8.com/?size=48&id=89392&format=png" />
+                  <p class="text-md text-gray-500">Price: ${pet.price}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <!-- details information  -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">Details Information</h3>
+            <p class="text-lg text-gray-500 text-justify">
+              ${pet.pet_details}
+            </p>
+            <div class="pl-5">
+              <ul class="model-ul">
+                <li class="text-gray-500 text-lg">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Perspiciatis, exercitationem.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-action">
+          <form method="dialog" class="w-full">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn w-full font-bold bg-blue-200 text-[#0E7A81]">
+              Cancel
+            </button>
+          </form>
+        </div>
+  `
+  my_modal.showModal()
+}
 const chosenPetsContainer = document.getElementById("choosen-pets");
 const likeBtnClicked = (petID) => {
   fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petID}`)
